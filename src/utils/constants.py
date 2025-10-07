@@ -1,0 +1,1 @@
+MODEL_OPENAI = 'gpt-4o-mini'
