@@ -5,6 +5,7 @@ from src.utils.prompts import (
     PROMPT_HEALTH_CENTERS_AGENT,
     PROMPT_MEDICATION_AGENT,
     PROMPT_AIR_QUALITY_CHECKER_AGENT,
+    PROMPT_FINAL_RESPONSE_AGENT,
 )
 from .tools import health_centers_search_tool, medication_info_tool, air_quality_tool
 
@@ -38,4 +39,12 @@ air_quality_checker_agent = AssistantAgent(
     tools=[air_quality_tool],
     model_client=model_client,
     system_message=PROMPT_AIR_QUALITY_CHECKER_AGENT,
+)
+
+final_response_agent = AssistantAgent(
+    name="FinalResponseAgent",
+    description="An agent that compiles all outputs into a single HTML response.",
+    tools=[],
+    model_client=model_client,
+    system_message=PROMPT_FINAL_RESPONSE_AGENT,
 )
